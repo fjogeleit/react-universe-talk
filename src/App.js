@@ -31,7 +31,8 @@ const enhance = compose(
 )
 
 // if false render the result of this function
-export default enhance(({ saveTodo, fetch, todos }) => (<div>
+export default enhance(({ saveTodo, fetch, todos }) => (
+  <div>
     <TodoInput onEnter={saveTodo}/>
     <TodoList todos={todos}/>
   </div>
