@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+  state = {
+    todos: [
+      { task: 'do stuff' },
+      { task: 'do other stuff' }
+    ]
+  }
+
   render() {
     return (
-      <div className="App">
-
-      </div>
+      <ul className="todos">
+        {this.state.todos.map((todo, index) =>
+          <li key={index}>{todo.task}</li>
+        )}
+      </ul>
     );
   }
 }
