@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "task": "do stuff"
+    },
+    {
+      "id": 2,
+      "task": "do other stuff"
+    }
+  ]
+}
