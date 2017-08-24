@@ -13,7 +13,7 @@ const enhance = compose(
   setDisplayName('App'),
   // connect to redux store
   connect(
-    (state) => ({ todos: state.todos, fetch: state.fetch }),
+    ({ todos, fetch }) => ({ todos, fetch }),
     { saveTodo, fetchTodos }
   ),
   // add react lifecycle functions
@@ -25,7 +25,7 @@ const enhance = compose(
   }),
   // render alternative component
   branch(
-    ({ fetch }) => fetch,                                   // if true...
+    ({ fetch }) => fetch === true,                                   // if true...
     renderComponent(() => <span>Fetching Todos ...</span>)  // ...render this component
   )
 )
