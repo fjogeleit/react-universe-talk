@@ -1,9 +1,12 @@
+import { createStore, applyMiddleware } from 'redux'
+import { createEpicMiddleware } from 'redux-observable';
 import todoReducer from './reducer/todoReducer'
-import { createStore } from 'redux'
+import todoEpics from './epics/todoEpics'
 
-export default createStore(todoReducer, {
-  todos: [
-    { task: 'do stuff' },
-    { task: 'do other stuff' }
-  ]
-})
+const epicMiddleware = createEpicMiddleware(todoEpics);
+
+export default createStore(
+  todoReducer,
+  undefined,
+  applyMiddleware(epicMiddleware)
+)

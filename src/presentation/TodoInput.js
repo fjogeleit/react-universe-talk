@@ -2,7 +2,7 @@ import React  from 'react';
 import PropTypes from 'prop-types'
 
 const onKeyEnter = (onEnter) => ({ key, target }) => {
-  if (key === 'Enter') {
+  if (key === 'Enter' && target.value.length > 0) {
     onEnter(target.value)
     target.value = ''
   }
@@ -10,7 +10,7 @@ const onKeyEnter = (onEnter) => ({ key, target }) => {
 
 const TodoInput = ({ onEnter }) => (
   <div>
-    <input onKeyPress={onKeyEnter(onEnter)}/>
+    <input required={true} onKeyPress={onKeyEnter(onEnter)}/>
   </div>
 )
 
