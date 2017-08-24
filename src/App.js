@@ -25,7 +25,7 @@ const enhance = compose(
   }),
   // render alternative component
   branch(
-    ({ fetch }) => fetch === true,                                   // if true...
+    ({ fetch }) => fetch === true,                          // if true...
     renderComponent(() => <span>Fetching Todos ...</span>)  // ...render this component
   )
 )
