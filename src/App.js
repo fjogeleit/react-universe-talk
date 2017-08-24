@@ -1,18 +1,18 @@
 import React  from 'react';
-import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import TodoList from './presentation/TodoList'
+import TodoInput from './presentation/TodoInput'
+import { addTodo } from './store/actions/todoActions'
 
-const App = (props) => (
-  <ul className="todos">
-    {props.todos.map((todo, index) =>
-      <li key={index}>{todo.task}</li>
-    )}
-  </ul>
+const App = ({ addTodo, todos }) => (
+  <div>
+    <TodoInput onEnter={addTodo} />
+    <TodoList todos={todos} />
+  </div>
 )
 
-App.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    task: PropTypes.string.isRequired
-  })).isRequired
-}
+const mapStateToProps = (state) => ({
+  todos: state.todos
+})
 
-export default App;
+export default connect(mapStateToProps, { addTodo })(App);
