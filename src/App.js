@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React  from 'react';
+import PropTypes from 'prop-types'
 
-class App extends Component {
-  state = {
-    todos: [
-      { task: 'do stuff' },
-      { task: 'do other stuff' }
-    ]
-  }
+const App = (props) => (
+  <ul className="todos">
+    {props.todos.map((todo, index) =>
+      <li key={index}>{todo.task}</li>
+    )}
+  </ul>
+)
 
-  render() {
-    return (
-      <ul className="todos">
-        {this.state.todos.map((todo, index) =>
-          <li key={index}>{todo.task}</li>
-        )}
-      </ul>
-    );
-  }
+App.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    task: PropTypes.string.isRequired
+  })).isRequired
 }
 
 export default App;
