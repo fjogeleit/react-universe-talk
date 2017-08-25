@@ -19,3 +19,5 @@ https://github.com/fjogeleit/react-universe-talk/tree/03-react-redux
 https://github.com/fjogeleit/react-universe-talk/tree/04-react-observable
 
 ### 5. recompose - Separate the definition of component handlers from rendering
+
+https://github.com/fjogeleit/react-universe-talk/tree/05-recompose
